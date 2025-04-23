@@ -32,7 +32,7 @@ const Stats = ({ stats }) => {
       />
       
       <div className="col-span-1 md:col-span-2 lg:col-span-4">
-        <Card className="glass-card">
+        <Card className="glass-card hover-card">
           <CardContent className="p-8">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-medium">Completion Rate</h3>
@@ -55,7 +55,7 @@ const Stats = ({ stats }) => {
 
 const StatCard = ({ title, value, bgColor, textColor }) => {
   return (
-    <Card className={`${bgColor} border-none glass-card overflow-hidden`}>
+    <Card className={`${bgColor} border-none glass-card hover-card overflow-hidden`}>
       <CardContent className="p-6">
         <h3 className="text-base font-medium text-foreground/80">{title}</h3>
         <p className={`text-3xl font-bold mt-2 ${textColor}`}>{value}</p>

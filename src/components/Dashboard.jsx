@@ -1,17 +1,17 @@
 
 import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import { generateSampleTasks, calculateDashboardStats } from '../lib/taskUtils';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { generateSampleTasks, calculateDashboardStats } from '@/lib/taskUtils';
 import Stats from './Stats';
 import TaskList from './TaskList';
 import CalendarView from './Calendar';
 import Chatbot from './Chatbot';
 import NewTaskModal from './NewTaskModal';
-import { analyzeTaskPatterns } from '../lib/aiUtils';
-import { useToast } from '../hooks/use-toast';
-import { SidebarProvider, SidebarTrigger } from './ui/sidebar';
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import Sidebar from './Sidebar';
+import { analyzeTaskPatterns } from '@/lib/aiUtils';
+import { useToast } from '@/hooks/use-toast';
 
 const Dashboard = () => {
   const [tasks, setTasks] = useState(generateSampleTasks(15));
@@ -32,7 +32,7 @@ const Dashboard = () => {
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen w-full bg-gradient-to-br from-secondary/50 to-background">
+      <div className="flex min-h-screen w-full bg-gradient-to-br from-secondary/50 via-background to-secondary/50">
         <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
         
         <div className="flex-1 flex flex-col">
@@ -52,7 +52,7 @@ const Dashboard = () => {
               <div className="space-y-8">
                 <Stats stats={stats} />
                 
-                <Card className="animate-fade-in glass-card">
+                <Card className="animate-fade-in glass-card hover-card">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-lg font-medium">AI Insights</CardTitle>
                   </CardHeader>
@@ -80,7 +80,7 @@ const Dashboard = () => {
                   </TabsContent>
                   
                   <TabsContent value="analytics" className="space-y-6">
-                    <Card className="glass-card">
+                    <Card className="glass-card hover-card">
                       <CardContent className="pt-6">
                         <p className="text-center text-muted-foreground">Analytics visualization coming soon</p>
                       </CardContent>
@@ -99,7 +99,7 @@ const Dashboard = () => {
                 <h2 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                   Team
                 </h2>
-                <Card className="glass-card">
+                <Card className="glass-card hover-card">
                   <CardContent className="pt-6">
                     <p className="text-center text-muted-foreground">Team management features coming soon</p>
                   </CardContent>
